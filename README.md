@@ -25,6 +25,42 @@ class ReportGenerator {...}
 class PDFExporter {...}
 class EmailSender {...}
 
+<<<<<<< HEAD
+
+
+
+
+
+
+
+
+
+
+## 🌐 I - Principio de Segregación de Interfaces (ISP)
+
+> "Los clientes no deben verse obligados a depender de interfaces que no utilizan"
+
+### ❌ Ejemplo que viola el ISP
+```java
+interface DispositivoOficina {
+    void imprimir();
+    void escanear();
+    void faxear();
+}
+
+class ImpresoraBasica implements DispositivoOficina {
+    // Obligada a implementar métodos que no usa
+    public void imprimir() { ... }
+    public void escanear() { 
+        throw new UnsupportedOperationException(); 
+    }
+    public void faxear() { 
+        throw new UnsupportedOperationException(); 
+    }
+}
+
+
+=======
 # Principio O – Open/Closed (Abierto/Cerrado)
 
 ## Definición
@@ -101,3 +137,33 @@ class Penguin extends Bird {
 }
 
     Aquí se rompe el principio. Lo correcto sería tener una jerarquía diferente donde Bird no asuma que todas las aves vuelan.
+
+
+
+## 🌐 I - Principio de Segregación de Interfaces (ISP)
+
+> "Los clientes no deben verse obligados a depender de interfaces que no utilizan"
+
+### ❌ Ejemplo que viola el ISP
+```java
+interface DispositivoOficina {
+    void imprimir();
+    void escanear();
+    void faxear();
+}
+
+class ImpresoraBasica implements DispositivoOficina {
+    // Obligada a implementar métodos que no usa
+    public void imprimir() { ... }
+    public void escanear() { 
+        throw new UnsupportedOperationException(); 
+    }
+    public void faxear() { 
+        throw new UnsupportedOperationException(); 
+    }
+}
+
+
+
+
+>>>>>>> 37418240f27306d62aa23e6ea150d62948a98958
