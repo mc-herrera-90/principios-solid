@@ -80,3 +80,24 @@ public class Main {
         invoicePDF.generatePDF("Invoice #1234 Content.");
     }
 }
+L – Liskov Substitution Principle
+👉 Principio de Sustitución de Liskov
+
+Las subclases deben poder sustituir a sus clases padre sin afectar el funcionamiento.
+
+✔ Qué significa:
+Si una clase hija no se comporta como su clase padre, habrá errores al usarla.
+
+🧠 Ejemplo:
+
+class Bird {
+    public void fly() {
+        System.out.println("Puedo volar");
+    }
+}
+
+class Penguin extends Bird {
+    // ❌ Un pingüino no puede volar, pero estamos forzando una función que no aplica.
+}
+
+    Aquí se rompe el principio. Lo correcto sería tener una jerarquía diferente donde Bird no asuma que todas las aves vuelan.
