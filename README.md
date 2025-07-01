@@ -162,8 +162,48 @@ class ImpresoraBasica implements DispositivoOficina {
         throw new UnsupportedOperationException(); 
     }
 }
+### D:  El Dependency Inversion Principle dice:
+
+“Los módulos de alto nivel no deben depender de módulos de bajo nivel. Ambos deben depender de abstracciones.
+Las abstracciones no deben depender de los detalles, los detalles deben depender de las abstracciones.”
+
+Ejemplo 1: Notificaciones
+java
+Copiar
+Editar
+interface Notification {
+    void send(String message);
+}
+
+class EmailNotification implements Notification {
+    public void send(String message) {
+        System.out.println("Email: " + message);
+    }
+}
+
+class NotificationManager {
+    private Notification notification;
+
+    public NotificationManager(Notification notification) {
+        this.notification = notification;
+    }
+
+    public void notifyUser(String message) {
+        notification.send(message);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Notification email = new EmailNotification();
+        NotificationManager manager = new NotificationManager(email);
+        manager.notifyUser("Hola!");
+    }
+}
+Explicación: NotificationManager depende de la interfaz Notification (abstracción), no de una clase concreta. Esto permite cambiar el tipo de notificación sin modificar NotificationManager.
 
 
 
 
 >>>>>>> 37418240f27306d62aa23e6ea150d62948a98958
+
