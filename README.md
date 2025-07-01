@@ -24,3 +24,38 @@ class ReportManager {
 class ReportGenerator {...}
 class PDFExporter {...}
 class EmailSender {...}
+
+
+
+
+
+
+
+
+
+
+
+## 🌐 I - Principio de Segregación de Interfaces (ISP)
+
+> "Los clientes no deben verse obligados a depender de interfaces que no utilizan"
+
+### ❌ Ejemplo que viola el ISP
+```java
+interface DispositivoOficina {
+    void imprimir();
+    void escanear();
+    void faxear();
+}
+
+class ImpresoraBasica implements DispositivoOficina {
+    // Obligada a implementar métodos que no usa
+    public void imprimir() { ... }
+    public void escanear() { 
+        throw new UnsupportedOperationException(); 
+    }
+    public void faxear() { 
+        throw new UnsupportedOperationException(); 
+    }
+}
+
+
